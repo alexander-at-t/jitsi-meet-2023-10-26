@@ -3,7 +3,7 @@
 <body>
   <script src="https://meet.jit.si/external_api.js"></script>
   <script>
-    (async function() {
+    window.addEventListener('DOMContentLoaded', async () => {
       await navigator.mediaDevices.getUserMedia({ audio: true, video: true });
       const devices = await navigator.mediaDevices.enumerateDevices();
       const videoInputDevices = devices.filter(device => device.kind === 'videoinput');
@@ -21,7 +21,7 @@
         devices: { videoInput: firstVideoInputDeviceLabel },
       };
       const api = new JitsiMeetExternalAPI(domain, options);
-    })();
+    });
   </script>
 </body>
 </html>
